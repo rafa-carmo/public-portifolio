@@ -4,6 +4,7 @@ import { ArrowUp, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BR, US } from "country-flag-icons/react/3x2";
 import { useTranslations } from "next-intl";
+import contacts, { SocialsTypes } from "@/constants/contacts";
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -27,34 +28,18 @@ const Footer = () => {
 
           <div className="flex flex-col sm:flex-row gap-8 items-center">
             <div className="flex space-x-4">
-              <a
-                href="#"
-                className="bg-secondary w-10 h-10 rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors"
-                aria-label="GitHub"
-              >
-                <Github size={18} />
-              </a>
-              <a
-                href="#"
-                className="bg-secondary w-10 h-10 rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={18} />
-              </a>
-              <a
-                href="#"
-                className="bg-secondary w-10 h-10 rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={18} />
-              </a>
-              <a
-                href="mailto:contato@seuemail.com"
-                className="bg-secondary w-10 h-10 rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors"
-                aria-label="Email"
-              >
-                <Mail size={18} />
-              </a>
+              {Object.keys(contacts.socials).map((social) => (
+                <a
+                  href={contacts.socials[social as SocialsTypes].url}
+                  key={`footer-${social}`}
+                  className="bg-secondary w-10 h-10 rounded-full flex items-center justify-center text-foreground hover:bg-primary hover:text-white transition-colors"
+                  aria-label="GitHub"
+                >
+                  {contacts.socials[social as SocialsTypes].icon}
+                </a>
+
+              ))}
+              
             </div>
 
             <Button

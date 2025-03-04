@@ -3,6 +3,7 @@ import { ArrowDownCircle, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
+import contacts, { SocialsTypes } from "@/constants/contacts";
 
 const Hero = () => {
   const default_values = useTranslations("Default")
@@ -14,8 +15,8 @@ const Hero = () => {
       className="relative flex flex-col items-center py-20 md:min-h-0 min-h-screen overflow-hidden"
     >
       {/* Background decorative elements */}
-      <div className="absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-70 animated-blur"></div>
-      <div className="absolute bottom-10 left-10 w-64 h-64 bg-blue-300/20 rounded-full filter blur-3xl opacity-60 animated-blur"></div>
+      <div className="absolute top-20 right-0 w-96 h-96 bg-primary/10 rounded-full filter blur-3xl opacity-70 animated-blur pointer-events-none"></div>
+      <div className="absolute bottom-10 left-10 w-64 h-64 bg-blue-300/20 rounded-full filter blur-3xl opacity-60 animated-blur pointer-events-none"></div>
 
       <div className="section-container">
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-center">
@@ -48,28 +49,18 @@ const Hero = () => {
               </a>
             </div>
             
-            <div className="flex items-center space-x-5 pt-2">
-              <a
-                href="#"
-                className="text-foreground/80 hover:text-primary transition-colors"
-                aria-label="GitHub"
-              >
-                <Github size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-foreground/80 hover:text-primary transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin size={20} />
-              </a>
-              <a
-                href="#"
-                className="text-foreground/80 hover:text-primary transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter size={20} />
-              </a>
+            <div className="flex items-center pl-2 md:pl-5 space-x-5 pt-2">
+              {Object.keys(contacts.socials).map((social) => (
+                <a
+                  key={social}
+                  href={contacts.socials[social as SocialsTypes].url}
+                  className="text-foreground/80 hover:text-primary transition-colors"
+                  aria-label={social}
+                >
+                  {contacts.socials[social as SocialsTypes].icon}
+                </a>
+              ))}
+        
             </div>
           </div>
           

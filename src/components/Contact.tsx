@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useTranslations } from "next-intl";
 import { FormData, sendMessage } from "@/lib/server";
+import contacts from "@/constants/contacts";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -73,7 +74,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-muted-foreground">Email</h4>
-                    <p className="text-base">contato@seuemail.com</p>
+                    <p className="text-base">{contacts.contact.email}</p>
                   </div>
                 </div>
 
@@ -83,7 +84,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-muted-foreground">{contact_t("phone")}</h4>
-                    <p className="text-base">+55 (21) 99999-9999</p>
+                    <p className="text-base">{contacts.contact.phone}</p>
                   </div>
                 </div>
 
@@ -93,7 +94,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="text-sm font-medium text-muted-foreground">{contact_t("location")}</h4>
-                    <p className="text-base">Rio de Janeiro, Brasil</p>
+                    <p className="text-base">{contacts.contact.location}</p>
                   </div>
                 </div>
               </div>
