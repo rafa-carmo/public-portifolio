@@ -7,12 +7,14 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useTranslations } from "next-intl";
+import { FormData, sendMessage } from "@/lib/server";
 
 const Contact = () => {
   const { toast } = useToast();
   const contact_t = useTranslations('Contact');
+  const toast_t = useTranslations('Toast');
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
     subject: "",
@@ -26,28 +28,24 @@ const Contact = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      setIsSubmitting(false);
-      toast({
-        title: "Mensagem enviada com sucesso!",
-        description: "Entrarei em contato o mais breve possível.",
-      });
+    await sendMessage(formData)
 
-      fetch('http://localhost:3333/notify', {
-        method: 'POST',
-      })
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: "",
-      });
-    }, 1500);
+    toast({
+      title: toast_t("success"),
+      description: toast_t("success_description"),
+    });
+
+    setFormData({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    })  
+    setIsSubmitting(false);
+    
   };
 
   return (

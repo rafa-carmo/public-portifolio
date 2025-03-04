@@ -3,6 +3,13 @@
         "title": "Rafael do Carmo - Desenvolvedor Web",
         "description": "Desenvolvimento web profissional e soluções digitais personalizadas que elevam sua presença online. Criatividade, tecnologia e resultados."
     },
+    "Toast": {
+        "success": "Mensagem enviada com sucesso!",
+        "success_description": "Obrigado por entrar em contato. Responderemos em breve.",
+        
+        "error": "Erro ao enviar mensagem. Tente novamente mais tarde.",
+        "error_description": "Se o problema persistir, entre em contato diretamente pelo e-mail"
+    },
     "Header": {
         "home": "Início",
         "services": "Serviços",

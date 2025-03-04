@@ -3,6 +3,13 @@
         "title": "Rafael do Carmo - Web Developer",
         "description": "Professional web development and customized digital solutions that elevate your online presence. Creativity, technology, and results."
     },
+    "Toast": {
+        "success": "Message sent successfully!",
+        "success_description": "Thank you for getting in touch. We will respond shortly.",
+        
+        "error": "Error sending message. Please try again later.",
+        "error_description": "If the problem persists, contact us directly via email"
+    },
     "Header": {
         "home": "Home",
         "services": "Services",

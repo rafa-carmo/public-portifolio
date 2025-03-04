@@ -1,6 +1,8 @@
+import ToasProvider from "@/providers/toast";
 import "./globals.css";
 import {NextIntlClientProvider} from 'next-intl';
 import {getMessages} from 'next-intl/server';
+
  
 export default async function LocaleLayout({
   children,
@@ -21,7 +23,9 @@ export default async function LocaleLayout({
     <html lang={locale ?? 'en'}>
       <body>
         <NextIntlClientProvider messages={messages}>
-          {children}
+          <ToasProvider>
+            {children}
+          </ToasProvider>
         </NextIntlClientProvider>
       </body>
     </html>
