@@ -1,0 +1,8 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: rafacarmo_portfolio_public
+    ports:
+      - 8099:3000
