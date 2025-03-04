@@ -1,0 +1,61 @@
+{
+    "Default": {
+        "title": "Rafael do Carmo - Web Developer",
+        "description": "Professional web development and customized digital solutions that elevate your online presence. Creativity, technology, and results."
+    },
+    "Header": {
+        "home": "Home",
+        "services": "Services",
+        "projects": "Projects",
+        "contact": "Contact",
+        "cta": "Let's talk"
+    },
+
+    "Hero": {
+        "title": "Transforming ideas into <important>digital experiences</important> experiences",
+        "description": "Professional web development and customized digital solutions that elevate your online presence. Creativity, technology, and results.",
+        "projects": "Completed projects",
+        "button_work": "My work",
+        "button_contact": "Get in touch",
+        "button_scroll": "Scroll down"
+    },
+
+    "Services": {
+        "title": "What I do",
+        "description": "I offer complete digital solutions, from web application development to performance optimization, always focusing on user experience."
+    },
+
+    "Projects": {
+        "title": "Previous Projects",
+        "description": "Explore some of the most recent projects I have developed for clients in various sectors, highlighting my versatility and technical expertise.",
+        "button": "Load more projects"
+    },
+
+    "Contact": {
+
+        "title": "Get in Touch",
+        "subtitle": "Do you have a project in mind or need help with your digital presence? I would be happy to discuss how I can help you achieve your goals.",
+        
+        "message_title": "Let's talk",
+        "message_description": "I am available for freelance projects, consulting, or to discuss collaboration opportunities. Get in touch!",
+        "location": "Location",
+        "phone": "Phone",
+        
+        "form_name": "Name",
+        "form_name_placeholder": "Your name",
+        "form_email": "Email",
+        "form_email_placeholder": "your@email.com",
+        "form_subject": "Subject",
+        "form_subject_placeholder": "What do you want to talk about?",
+        "form_message": "Message",
+        "form_message_placeholder": "Describe your project or question...",
+        "form_submit": "Send message",
+        "form_sending": "Sending..."
+    },
+
+    "Footer": {
+        "title": "Rafael's Portfolio",
+        "description": "Development of digital solutions focusing on user experience, performance, and results.",
+        "copy": "© {year} Rafael do Carmo. All rights reserved."
+    }
+}

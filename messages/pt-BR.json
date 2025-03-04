@@ -1,0 +1,61 @@
+{
+    "Default": {
+        "title": "Rafael do Carmo - Desenvolvedor Web",
+        "description": "Desenvolvimento web profissional e soluções digitais personalizadas que elevam sua presença online. Criatividade, tecnologia e resultados."
+    },
+    "Header": {
+        "home": "Início",
+        "services": "Serviços",
+        "projects": "Projetos",
+        "contact": "Contato",
+        "cta": "Vamos conversar"
+    },
+
+    "Hero": {
+        "title": "Transformando ideias em <important>experiências digitais</important> excepcionais",
+        "description": " Desenvolvimento web profissional e soluções digitais personalizadas que elevam sua presença online. Criatividade, tecnologia e resultados.",
+        "projects": "Projetos concluídos",
+        "button_work": "Meu trabalho",
+        "button_contact": "Entre em contato",
+        "button_scroll": "Role para baixo"
+    },
+
+    "Services": {
+        "title": "O que eu faço",
+        "description": "Ofereço soluções digitais completas, desde o desenvolvimento de aplicações web até a otimização de performance, sempre com foco na experiência do usuário."
+    },
+
+    "Projects": {
+        "title": "Projetos Anteriores",
+        "description": "Explore alguns dos projetos mais recentes que desenvolvi para clientes em diversos setores, destacando minha versatilidade e expertise técnica.",
+        "button": "Carregar mais projetos"
+    },
+
+    "Contact": {
+
+        "title": "Entre em Contato",
+        "subtitle": "Tem um projeto em mente ou precisa de ajuda com sua presença digital? Ficarei feliz em conversar sobre como posso ajudar a alcançar seus objetivos.",
+        
+        "message_title": "Vamos conversar",
+        "message_description": "Estou disponível para projetos freelance, consultoria ou para discutir oportunidades de colaboração. Entre em contato!",
+        "location": "Localização",
+        "phone": "Telefone",
+        
+        "form_name": "Nome",
+        "form_name_placeholder": "Seu nome",
+        "form_email": "E-mail",
+        "form_email_placeholder": "seu@email.com",
+        "form_subject": "Assunto",
+        "form_subject_placeholder": "Sobre o que você quer conversar?",
+        "form_message": "Mensagem",
+        "form_message_placeholder": "Descreva seu projeto ou dúvida...",
+        "form_submit": "Enviar mensagem",
+        "form_sending": "Enviando..."
+    },
+
+    "Footer": {
+        "title": "Portfolio Rafael",
+        "description": "Desenvolvimento de soluções digitais com foco em experiência do usuário, performance e resultados.",
+        "copy": "© {year} Rafael do Carmo. Todos os direitos reservados."
+    }
+}
