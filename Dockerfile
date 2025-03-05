@@ -24,6 +24,7 @@ COPY . .
 # ENV NEXT_TELEMETRY_DISABLED 1
 
 RUN bun run build
+RUN bun run sitemap
 
 # Production image, copy all the files and run next
 FROM base AS runner
