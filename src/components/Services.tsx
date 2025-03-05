@@ -1,4 +1,5 @@
 
+'use client'
 import { services as serviceList } from "@/constants/services";
 import ServiceCard from "./ServiceCard";
 import { useTranslations } from "next-intl";

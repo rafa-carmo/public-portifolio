@@ -5,8 +5,31 @@ import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import type { Metadata } from 'next'
+import metadata, { Languages } from "@/constants/metadata";
+
  
-export default async function Page({params} : {params: Promise<{ locale: string }>}) {
+type Props = {
+    params: Promise<{ locale: string }>
+}
+
+export async function generateMetadata(
+    { params }: Props,
+  ): Promise<Metadata> {
+    // read route params
+    const { locale } = await params
+    const meta = metadata[locale as Languages]
+    
+    return {
+      title: meta.title,
+      description: meta.description,
+      openGraph: {
+        images: ['https://www.rafaelcarmo.dev/hero.svg'],
+      },
+    }
+  }
+
+export default async function Page({params} : Props) {
     const {locale} = await params;
    
   return (

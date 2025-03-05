@@ -60,10 +60,10 @@ const Footer = () => {
 
           </div>
           <div className="flex space-x-6 text-sm">
-            <a href="/" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Português" title="Português">
+            <a href="/pt-BR" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Português" title="Português">
               <BR className="w-5 h-5" />
             </a>
-            <a href="/?lang=en-US" className="text-muted-foreground hover:text-primary transition-colors" aria-label="English" title="English">
+            <a href="/en" className="text-muted-foreground hover:text-primary transition-colors" aria-label="English" title="English">
               <US className="w-5 h-5" />
             </a>
             <a href="#" className="text-muted-foreground hover:text-primary transition-colors hidden">
