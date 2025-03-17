@@ -13,6 +13,14 @@ export const projects: Projects = {
     "pt-BR": 
     [
         {
+            title: "Sistema de Gestão financeira - MODELO",
+            description: "Sistema de gestão financeira com controle de contas a pagar e a receber.",
+            tags: ["Typescript", "NextJS"],
+            image: "/assets/systems/financeiro.png",
+            liveLink: "https://templates.rafaelcarmo.dev/financeiro",
+            githubLink: "https://github.com/rafa-carmo/templates-web",
+        },
+        {
             title: "Landing Page para Restaurante",
             description: "Site institucional para restaurante com sistema de reservas e cardápio digital.",
             tags: ["Typescript", "NextJS"],
@@ -36,8 +44,17 @@ export const projects: Projects = {
   
             githubLink: "https://github.com/rafa-carmo/won-games",
         }
-  ],
-  'en': [
+    ],
+  'en': 
+    [
+        {
+            title: "Financial Management System - TEMPLATE",
+            description: "Financial management system with accounts payable and receivable control.",
+            tags: ["Typescript", "NextJS"],
+            image: "/assets/systems/financeiro.png",
+            liveLink: "https://templates.rafaelcarmo.dev/financeiro",
+            githubLink: "https://github.com/rafa-carmo/templates-web",
+        }, 
         {
             title: "Landing Page for Restaurant",
             description: "Institutional website for a restaurant with reservation system and digital menu.",
@@ -62,5 +79,5 @@ export const projects: Projects = {
   
             githubLink: "https://github.com/rafa-carmo/won-games",
         }
-  ]
+    ]
 }
