@@ -12,12 +12,12 @@ export default {
             icon: <Linkedin />,
         },
         email: {
-            url: 'mailto:rafaelcarmo143@gmail.com',
+            url: 'mailto:contato@rafaelcarmo.dev',
             icon: <Mail />,
         }
     },
     contact: {
-        email: 'rafaelcarmo143@gmail.com',
+        email: 'contato@rafaelcarmo.dev',
         phone: '+55 21 9 9554-0043',
         location: 'Rio de Janeiro, Brasil',
     }
