@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 import { ArrowUp, Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { BR, US } from "country-flag-icons/react/3x2";
@@ -18,7 +17,10 @@ const Footer = () => {
       <div className="section-container">
         <div className="flex flex-col md:flex-row justify-between items-center">
           <div className="mb-8 md:mb-0">
-            <a href="#" className="text-2xl font-bold text-foreground font-display mb-2 inline-block">
+            <a
+              href="#"
+              className="text-2xl font-bold text-foreground font-display mb-2 inline-block"
+            >
               Portfolio <span className="text-primary">Rafael</span>
             </a>
             <p className="text-muted-foreground max-w-md mt-2">
@@ -37,9 +39,7 @@ const Footer = () => {
                 >
                   {contacts.socials[social as SocialsTypes].icon}
                 </a>
-
               ))}
-              
             </div>
 
             <Button
@@ -56,20 +56,35 @@ const Footer = () => {
 
         <div className="border-t border-border/40 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
           <div className="text-sm text-muted-foreground mb-4 md:mb-0">
-            {footer_t("copy", {year: new Date().getFullYear()})}
-
+            {footer_t("copy", { year: new Date().getFullYear() })}
           </div>
           <div className="flex space-x-6 text-sm">
-            <a href="/pt-BR" className="text-muted-foreground hover:text-primary transition-colors" aria-label="Português" title="Português">
+            <a
+              href="/pt-BR"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="Português"
+              title="Português"
+            >
               <BR className="w-5 h-5" />
             </a>
-            <a href="/en" className="text-muted-foreground hover:text-primary transition-colors" aria-label="English" title="English">
+            <a
+              href="/en"
+              className="text-muted-foreground hover:text-primary transition-colors"
+              aria-label="English"
+              title="English"
+            >
               <US className="w-5 h-5" />
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors hidden">
+            <a
+              href="#"
+              className="text-muted-foreground hover:text-primary transition-colors hidden"
+            >
               Política de Privacidade
             </a>
-            <a href="#" className="text-muted-foreground hover:text-primary transition-colors hidden">
+            <a
+              href="#"
+              className="text-muted-foreground hover:text-primary transition-colors hidden"
+            >
               Termos de Serviço
             </a>
           </div>

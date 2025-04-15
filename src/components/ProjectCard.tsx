@@ -1,4 +1,3 @@
-
 import { ArrowUpRight, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
@@ -55,11 +54,11 @@ const ProjectCard = ({
             </a>
           )}
           {githubLink && (
-             <a href={githubLink} target="_blank" rel="noopener noreferrer">
+            <a href={githubLink} target="_blank" rel="noopener noreferrer">
               <Button size="sm" variant="outline" className="gap-1">
                 <Github size={16} /> Código
               </Button>
-              </a>
+            </a>
           )}
         </div>
       </div>

@@ -1,5 +1,4 @@
-
-'use client'
+"use client";
 import { useState } from "react";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -7,13 +6,21 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/components/ui/use-toast";
 import { useTranslations } from "next-intl";
-import { FormData, sendMessage } from "@/lib/server";
+
 import contacts from "@/constants/contacts";
+import { sendMessage } from "@/lib/server";
+
+type FormData = {
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+};
 
 const Contact = () => {
   const { toast } = useToast();
-  const contact_t = useTranslations('Contact');
-  const toast_t = useTranslations('Toast');
+  const contact_t = useTranslations("Contact");
+  const toast_t = useTranslations("Toast");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -23,7 +30,7 @@ const Contact = () => {
   });
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
@@ -32,7 +39,8 @@ const Contact = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    await sendMessage(formData)
+
+    await sendMessage(formData);
 
     toast({
       title: toast_t("success"),
@@ -44,9 +52,8 @@ const Contact = () => {
       email: "",
       subject: "",
       message: "",
-    })  
+    });
     setIsSubmitting(false);
-    
   };
 
   return (
@@ -54,17 +61,17 @@ const Contact = () => {
       <div className="section-container">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
           <h2 className="section-title">{contact_t("title")}</h2>
-          <p className="section-subtitle">
-            {contact_t("subtitle")}
-          </p>
+          <p className="section-subtitle">{contact_t("subtitle")}</p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 animate-fade-in">
             <div className="glass-card rounded-xl p-8 h-full">
-              <h3 className="text-2xl font-bold mb-6">{contact_t("message_title")}</h3>
+              <h3 className="text-2xl font-bold mb-6">
+                {contact_t("message_title")}
+              </h3>
               <p className="text-muted-foreground mb-8">
-                {contact_t("message_description" )}
+                {contact_t("message_description")}
               </p>
 
               <div className="space-y-6">
@@ -73,7 +80,9 @@ const Contact = () => {
                     <Mail size={20} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-medium text-muted-foreground">Email</h4>
+                    <h4 className="text-sm font-medium text-muted-foreground">
+                      Email
+                    </h4>
                     <p className="text-base">{contacts.contact.email}</p>
                   </div>
                 </div>
@@ -83,7 +92,9 @@ const Contact = () => {
                     <Phone size={20} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-medium text-muted-foreground">{contact_t("phone")}</h4>
+                    <h4 className="text-sm font-medium text-muted-foreground">
+                      {contact_t("phone")}
+                    </h4>
                     <p className="text-base">{contacts.contact.phone}</p>
                   </div>
                 </div>
@@ -93,7 +104,9 @@ const Contact = () => {
                     <MapPin size={20} className="text-primary" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-medium text-muted-foreground">{contact_t("location")}</h4>
+                    <h4 className="text-sm font-medium text-muted-foreground">
+                      {contact_t("location")}
+                    </h4>
                     <p className="text-base">{contacts.contact.location}</p>
                   </div>
                 </div>
@@ -172,7 +185,9 @@ const Contact = () => {
                 className="w-full sm:w-auto gap-2"
                 disabled={isSubmitting}
               >
-                {isSubmitting ? contact_t("form_sending") : contact_t("form_submit")}
+                {isSubmitting
+                  ? contact_t("form_sending")
+                  : contact_t("form_submit")}
                 <Send size={16} />
               </Button>
             </form>

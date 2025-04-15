@@ -1,16 +1,16 @@
-'use client'
+"use client";
 
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { US } from 'country-flag-icons/react/3x2'
-import { BR } from 'country-flag-icons/react/3x2'
+import { US } from "country-flag-icons/react/3x2";
+import { BR } from "country-flag-icons/react/3x2";
 import { useTranslations } from "next-intl";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const header = useTranslations('Header');
+  const header = useTranslations("Header");
 
   const handleScroll = () => {
     if (window.scrollY > 50) {
@@ -38,7 +38,10 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
           <div className="flex items-center">
-            <a href="#" className="text-xl font-bold text-foreground font-display">
+            <a
+              href="#"
+              className="text-xl font-bold text-foreground font-display"
+            >
               Rafael <span className="text-primary">Portfolio</span>
             </a>
           </div>
@@ -71,10 +74,10 @@ const Header = () => {
             </a>
             <div className="flex items-center space-x-2">
               <a href="/pt-BR" title="Português" aria-label="Português">
-                  <BR className="w-5 h-5" />
+                <BR className="w-5 h-5" />
               </a>
               <a href="/en" title="English" aria-label="English">
-                  <US className="w-5 h-5" />
+                <US className="w-5 h-5" />
               </a>
             </div>
             <a href="#contact">
@@ -130,9 +133,7 @@ const Header = () => {
               {header("contact")}
             </a>
             <div className="px-3 py-3">
-              <Button className="w-full">
-                {header("cta")}
-              </Button>
+              <Button className="w-full">{header("cta")}</Button>
             </div>
           </div>
         </div>

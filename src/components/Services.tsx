@@ -1,18 +1,21 @@
-
-'use client'
+"use client";
 import { services as serviceList } from "@/constants/services";
 import ServiceCard from "./ServiceCard";
 import { useTranslations } from "next-intl";
 
-const Services = ({locale} : {locale:string}) => {
+const Services = ({ locale }: { locale: string }) => {
   const services = useTranslations("Services");
   const services_items = serviceList[locale];
-  
+  if (!services_items) {
+    return <p>Loading...</p>;
+  }
   return (
     <section id="services" className="bg-secondary/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-6">{services("title")}</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-6">
+            {services("title")}
+          </h2>
           <p className="text-base text-muted-foreground max-w-2xl mb-16">
             {services("description")}
           </p>
@@ -34,7 +37,6 @@ const Services = ({locale} : {locale:string}) => {
           ))}
         </div>
       </div>
-
     </section>
   );
 };

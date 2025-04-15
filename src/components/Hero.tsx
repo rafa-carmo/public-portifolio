@@ -1,4 +1,3 @@
-
 import { ArrowDownCircle, Github, Linkedin, Twitter } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslations } from "next-intl";
@@ -6,8 +5,8 @@ import Image from "next/image";
 import contacts, { SocialsTypes } from "@/constants/contacts";
 
 const Hero = () => {
-  const default_values = useTranslations("Default")
-  const hero_values = useTranslations("Hero")
+  const default_values = useTranslations("Default");
+  const hero_values = useTranslations("Hero");
 
   return (
     <section
@@ -26,16 +25,20 @@ const Hero = () => {
                 {default_values("title")}
               </div>
             </div>
-            
-            <h1 className="text-4xl md:text-6xl font-bold font-display tracking-tight" dangerouslySetInnerHTML={{
-             __html: hero_values.markup("title", {important: (chunk) => `<span>${chunk}</span>`})
-            }}>
-            </h1>
-            
+
+            <h1
+              className="text-4xl md:text-6xl font-bold font-display tracking-tight"
+              dangerouslySetInnerHTML={{
+                __html: hero_values.markup("title", {
+                  important: (chunk) => `<span>${chunk}</span>`,
+                }),
+              }}
+            ></h1>
+
             <p className="text-xl text-muted-foreground max-w-2xl">
               {hero_values("description")}
             </p>
-            
+
             <div className="flex flex-wrap gap-4 pt-2">
               <a href="#projects">
                 <Button size="lg" className="rounded-full px-8">
@@ -43,12 +46,16 @@ const Hero = () => {
                 </Button>
               </a>
               <a href="#contact">
-                <Button variant="outline" size="lg" className="rounded-full px-8">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="rounded-full px-8"
+                >
                   {hero_values("button_contact")}
                 </Button>
               </a>
             </div>
-            
+
             <div className="flex items-center pl-2 md:pl-5 space-x-5 pt-2">
               {Object.keys(contacts.socials).map((social) => (
                 <a
@@ -60,10 +67,9 @@ const Hero = () => {
                   {contacts.socials[social as SocialsTypes].icon}
                 </a>
               ))}
-        
             </div>
           </div>
-          
+
           <div className="lg:col-span-2 relative animate-fade-in-slow hidden md:block">
             <div className="aspect-square rounded-2xl overflow-hidden p-1">
               <div className="w-full h-full rounded-xl overflow-hidden ">
@@ -76,7 +82,7 @@ const Hero = () => {
                 />
               </div>
             </div>
-            
+
             {/* Stats floating card */}
             <div className="glass-card p-4 rounded-xl absolute -bottom-5 -left-5 shadow-lg animate-slide-up delay-300 hidden">
               <div className="flex items-center space-x-4">
@@ -84,7 +90,9 @@ const Hero = () => {
                   <ArrowDownCircle size={20} />
                 </div>
                 <div>
-                  <div className="text-sm text-muted-foreground">{hero_values("projects")}</div>
+                  <div className="text-sm text-muted-foreground">
+                    {hero_values("projects")}
+                  </div>
                   <div className="text-2xl font-bold">120+</div>
                 </div>
               </div>
@@ -92,10 +100,12 @@ const Hero = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Scroll down indicator */}
       <div className="transform -translate-x-1/2 flex flex-col items-center animate-bounce">
-        <span className="text-sm text-muted-foreground mb-2">{hero_values("button_scroll")}</span>
+        <span className="text-sm text-muted-foreground mb-2">
+          {hero_values("button_scroll")}
+        </span>
         <ArrowDownCircle size={24} className="text-primary" />
       </div>
     </section>

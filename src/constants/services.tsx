@@ -1,12 +1,19 @@
-import { Code, Layout, Database, Search, Smartphone, BarChart } from "lucide-react";
+import {
+  Code,
+  Layout,
+  Database,
+  Search,
+  Smartphone,
+  BarChart,
+} from "lucide-react";
 
 export type Service = {
   [key: string]: {
     icon: any;
     title: string;
     description: string;
-  }[]
-}
+  }[];
+};
 
 export const services: Service = {
   "pt-BR": [
@@ -47,7 +54,7 @@ export const services: Service = {
         "Monitoramento e otimização do desempenho de aplicações para máxima eficiência.",
     },
   ],
-  'en': [
+  en: [
     {
       icon: Code,
       title: "Frontend Development",
@@ -84,5 +91,5 @@ export const services: Service = {
       description:
         "Monitoring and optimizing application performance for maximum efficiency.",
     },
-  ]
+  ],
 };

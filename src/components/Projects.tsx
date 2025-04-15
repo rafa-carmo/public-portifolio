@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
@@ -6,12 +6,11 @@ import ProjectCard from "./ProjectCard";
 import { projects as projectList } from "@/constants/projects";
 import { useTranslations } from "next-intl";
 
-
-const Projects = ({locale} : {locale:string}) => {
+const Projects = ({ locale }: { locale: string }) => {
   const [visibleProjects, setVisibleProjects] = useState(3);
-  const project_t = useTranslations('Projects');
-  
-  const projects = projectList[locale]
+  const project_t = useTranslations("Projects");
+
+  const projects = projectList[locale];
 
   const loadMoreProjects = () => {
     setVisibleProjects((prev) => Math.min(prev + 3, projects.length));
@@ -21,7 +20,9 @@ const Projects = ({locale} : {locale:string}) => {
     <section id="projects">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
         <div className="max-w-3xl mx-auto text-center mb-16 animate-fade-in">
-          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-6">{project_t("title")}</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-6">
+            {project_t("title")}
+          </h2>
           <p className="text-base text-muted-foreground max-w-2xl mb-16">
             {project_t("description")}
           </p>
