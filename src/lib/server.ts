@@ -1,83 +1,75 @@
-'use server'
-import nodemailer from 'nodemailer'
+"use server";
+import { Resend } from "resend";
+import MessageEmail from "../emails/message";
+import ThanksEmail from "@/emails/thanks";
 
 export type FormData = {
-  name: string
-  email: string
-  subject: string
-  message: string
-}
+  name: string;
+  email: string;
+  subject: string;
+  message: string;
+  locale?: "en" | "pt-BR";
+};
 
 export async function sendMessage(data: FormData) {
-  await sendMail(data)
-  await sendDiscord(data)
-
+  await sendMail(data);
+  await sendDiscord(data);
 }
 
+const resend = new Resend(process.env.RESEND_API_KEY);
 
-async function sendMail(data: FormData){
-  const host = process.env.MAIL_HOST || 'localhost'
-        const port = Number(process.env.MAIL_PORT) || 1025
-        const secure = process.env.MAIL_SECURE === 'true' || false
-        const user = process.env.MAIL_SEND_USER || ''
-        const pass = process.env.MAIL_SEND_PASS || ''
-        const receive = process.env.MAIL_RECEIVE || ''
+const subjects = {
+  en: "Thanks for your contact!",
+  "pt-BR": "Obrigado pelo seu contato!",
+};
 
-        const transaction = nodemailer.createTransport({
-            host: host,
-            port: port,
-            secure,
-            auth: {
-              user: user,
-              pass: pass
-            }
-          });
+async function sendMail(data: FormData) {
+  const { email, message, name, subject, locale } = data;
 
-          try{ 
-              const info = await transaction.sendMail({
-                  from: `"Automatic message" <${user}>`, // sender address
-                  to: receive, // list of receivers
-                  subject: "Mensagem do Cliente", // Subject line
-                  text: `
-                  Mensagem do Cliente
-                  Nome: ${data.name}
-                  Email: ${data.email}
-                  Assunto: ${data.subject}
-                  Mensagem: ${data.message}
-                  `
-                })
-                
+  const sender = process.env.MAIL_SEND_USER || "contato@rafaelcarmo.dev";
+  const recievers = process.env.MAIL_RECIEVE?.split(",") || [
+    "test@email.com",
+  ];
 
-                if(info.messageId){
-                    return true
-                }
-            } 
-            catch(err){
-                console.log(err)
-                return false
-            }
+  resend.emails.send({
+    from: sender,
+    to: recievers,
+    subject: `Novo contato de ${data.name} - ${data.email}`,
+    react: MessageEmail({
+      email,
+      message,
+      name,
+      subject,
+    }),
+  });
+
+
+  resend.emails.send({
+    from: sender,
+    to: email,
+    subject: locale ? subjects[locale] : subjects["pt-BR"],
+    react: ThanksEmail({
+      name,
+      locale,
+    }),
+  });
 }
 
-async function sendDiscord({
-  name,
-  email,
-  subject,
-  message,
-}: FormData) {
+async function sendDiscord({ name, email, subject, message }: FormData) {
   const content = `
-    Mensagem recebida de <strong>${name} - ${email}</strong>\nAssunto: ${subject}\nMensagem:\n${message}`
+    Mensagem recebida de <strong>${name} - ${email}</strong>\nAssunto: ${subject}\nMensagem:\n${message}`;
 
-	const url = process.env.DISCORD_API_URL
-  console.log(url)
-	if (!url) throw new Error("Discord API url not be empty")
+  const url = process.env.DISCORD_API_URL;
 
-	await fetch(url, {
-		method: "post",
-		headers: {
-			"Content-Type": "application/json",
-		},
-		body: JSON.stringify({
-			content,
-		}),
-	})
+  if (!url) throw new Error("Discord API url not be empty");
+
+  await fetch(url, {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      content,
+    }),
+  });
 }
