@@ -1,6 +1,5 @@
 "use server";
 import { Resend } from "resend";
-import MessageEmail from "../emails/message";
 import ThanksEmail from "@/emails/thanks";
 
 export type FormData = {
@@ -12,8 +11,8 @@ export type FormData = {
 };
 
 export async function sendMessage(data: FormData) {
+  await fetchWebhook(data);
   await sendMail(data);
-  await sendDiscord(data);
 }
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -24,25 +23,9 @@ const subjects = {
 };
 
 async function sendMail(data: FormData) {
-  const { email, message, name, subject, locale } = data;
+  const { email, name, locale } = data;
 
   const sender = process.env.MAIL_SEND_USER || "contato@rafaelcarmo.dev";
-  const recievers = process.env.MAIL_RECIEVE?.split(",") || [
-    "test@email.com",
-  ];
-
-  resend.emails.send({
-    from: sender,
-    to: recievers,
-    subject: `Novo contato de ${data.name} - ${data.email}`,
-    react: MessageEmail({
-      email,
-      message,
-      name,
-      subject,
-    }),
-  });
-
 
   resend.emails.send({
     from: sender,
@@ -55,21 +38,27 @@ async function sendMail(data: FormData) {
   });
 }
 
-async function sendDiscord({ name, email, subject, message }: FormData) {
-  const content = `
-    Mensagem recebida de <strong>${name} - ${email}</strong>\nAssunto: ${subject}\nMensagem:\n${message}`;
+async function fetchWebhook(data: FormData) {
+  const { name, email, subject, message } = data;
 
-  const url = process.env.DISCORD_API_URL;
-
-  if (!url) throw new Error("Discord API url not be empty");
-
-  await fetch(url, {
-    method: "post",
+  const url = process.env.WEBHOOK_URL;
+  if (!url) {
+    return;
+  }
+  const body = JSON.stringify({
+    name,
+    email,
+    subject,
+    message,
+  });
+  const res = await fetch(url, {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
+      "Authorization": `basic ${process.env.WEBHOOK_USER}:${process.env.WEBHOOK_TOKEN}`,
     },
-    body: JSON.stringify({
-      content,
-    }),
+    body,
   });
+
 }
+
