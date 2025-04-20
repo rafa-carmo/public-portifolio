@@ -9,6 +9,7 @@ import { useTranslations } from "next-intl";
 
 import contacts from "@/constants/contacts";
 import { sendMessage } from "@/lib/server";
+import { reducer } from '../hooks/use-toast';
 
 type FormData = {
   name: string;
@@ -28,6 +29,7 @@ const Contact = () => {
     subject: "",
     message: "",
   });
+  const [sended, setSended] = useState(false);
 
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
@@ -54,6 +56,7 @@ const Contact = () => {
       message: "",
     });
     setIsSubmitting(false);
+    setSended(true);
   };
 
   return (
@@ -63,8 +66,8 @@ const Contact = () => {
           <h2 className="section-title">{contact_t("title")}</h2>
           <p className="section-subtitle">{contact_t("subtitle")}</p>
         </div>
-
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
+        
           <div className="lg:col-span-2 animate-fade-in">
             <div className="glass-card rounded-xl p-8 h-full">
               <h3 className="text-2xl font-bold mb-6">
@@ -115,6 +118,18 @@ const Contact = () => {
           </div>
 
           <div className="lg:col-span-3 animate-fade-in">
+            {sended ? (
+              <div className="glass-card rounded-xl p-8 h-full flex items-center justify-center">
+                <div className="flex flex-col items-center">
+                  <div className="bg-primary/10 p-3 rounded-lg mb-4">
+                    <Mail size={20} className="text-primary" />
+                  </div>
+                  <h3 className="text-2xl font-bold mb-2">
+                    {contact_t("form_success")}
+                  </h3>
+                </div>
+            </div>
+            ): (
             <form onSubmit={handleSubmit} className="glass-card rounded-xl p-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
                 <div className="space-y-2">
@@ -191,6 +206,7 @@ const Contact = () => {
                 <Send size={16} />
               </Button>
             </form>
+            )}
           </div>
         </div>
       </div>

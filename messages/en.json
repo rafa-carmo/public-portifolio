@@ -56,7 +56,8 @@
     "form_message": "Message",
     "form_message_placeholder": "Describe your project or question...",
     "form_submit": "Send message",
-    "form_sending": "Sending..."
+    "form_sending": "Sending...",
+    "form_success": "Message sent successfully!"
   },
 
   "Footer": {
