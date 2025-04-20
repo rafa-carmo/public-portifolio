@@ -9,7 +9,7 @@ import { useTranslations } from "next-intl";
 
 import contacts from "@/constants/contacts";
 import { sendMessage } from "@/lib/server";
-import { reducer } from '../hooks/use-toast';
+import { reducer } from "../hooks/use-toast";
 
 type FormData = {
   name: string;
@@ -67,7 +67,6 @@ const Contact = () => {
           <p className="section-subtitle">{contact_t("subtitle")}</p>
         </div>
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-12">
-        
           <div className="lg:col-span-2 animate-fade-in">
             <div className="glass-card rounded-xl p-8 h-full">
               <h3 className="text-2xl font-bold mb-6">
@@ -128,84 +127,87 @@ const Contact = () => {
                     {contact_t("form_success")}
                   </h3>
                 </div>
-            </div>
-            ): (
-            <form onSubmit={handleSubmit} className="glass-card rounded-xl p-8">
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="text-sm font-medium">
-                    {contact_t("form_name")}
-                  </label>
-                  <Input
-                    id="name"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    placeholder={contact_t("form_name_placeholder")}
-                    required
-                    className="bg-white/50 border-white/20"
-                  />
-                </div>
-                <div className="space-y-2">
-                  <label htmlFor="email" className="text-sm font-medium">
-                    {contact_t("form_email")}
-                  </label>
-                  <Input
-                    id="email"
-                    name="email"
-                    type="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    placeholder={contact_t("form_email_placeholder")}
-                    required
-                    className="bg-white/50 border-white/20"
-                  />
-                </div>
               </div>
-
-              <div className="space-y-2 mb-6">
-                <label htmlFor="subject" className="text-sm font-medium">
-                  {contact_t("form_subject")}
-                </label>
-                <Input
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  placeholder={contact_t("form_subject_placeholder")}
-                  required
-                  className="bg-white/50 border-white/20"
-                />
-              </div>
-
-              <div className="space-y-2 mb-8">
-                <label htmlFor="message" className="text-sm font-medium">
-                  {contact_t("form_message")}
-                </label>
-                <Textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  placeholder={contact_t("form_message_placeholder")}
-                  rows={5}
-                  required
-                  className="bg-white/50 border-white/20"
-                />
-              </div>
-
-              <Button
-                type="submit"
-                size="lg"
-                className="w-full sm:w-auto gap-2"
-                disabled={isSubmitting}
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="glass-card rounded-xl p-8"
               >
-                {isSubmitting
-                  ? contact_t("form_sending")
-                  : contact_t("form_submit")}
-                <Send size={16} />
-              </Button>
-            </form>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium">
+                      {contact_t("form_name")}
+                    </label>
+                    <Input
+                      id="name"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      placeholder={contact_t("form_name_placeholder")}
+                      required
+                      className="bg-white/50 border-white/20"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium">
+                      {contact_t("form_email")}
+                    </label>
+                    <Input
+                      id="email"
+                      name="email"
+                      type="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder={contact_t("form_email_placeholder")}
+                      required
+                      className="bg-white/50 border-white/20"
+                    />
+                  </div>
+                </div>
+
+                <div className="space-y-2 mb-6">
+                  <label htmlFor="subject" className="text-sm font-medium">
+                    {contact_t("form_subject")}
+                  </label>
+                  <Input
+                    id="subject"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleChange}
+                    placeholder={contact_t("form_subject_placeholder")}
+                    required
+                    className="bg-white/50 border-white/20"
+                  />
+                </div>
+
+                <div className="space-y-2 mb-8">
+                  <label htmlFor="message" className="text-sm font-medium">
+                    {contact_t("form_message")}
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    placeholder={contact_t("form_message_placeholder")}
+                    rows={5}
+                    required
+                    className="bg-white/50 border-white/20"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  size="lg"
+                  className="w-full sm:w-auto gap-2"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting
+                    ? contact_t("form_sending")
+                    : contact_t("form_submit")}
+                  <Send size={16} />
+                </Button>
+              </form>
             )}
           </div>
         </div>

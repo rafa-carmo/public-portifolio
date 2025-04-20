@@ -52,17 +52,16 @@ async function fetchWebhook(data: FormData) {
     message,
   });
 
-  const token = Buffer.from(`${process.env.WEBHOOK_USER}:${process.env.WEBHOOK_PASSWORD}`).toString("base64")
+  const token = Buffer.from(
+    `${process.env.WEBHOOK_USER}:${process.env.WEBHOOK_PASSWORD}`,
+  ).toString("base64");
 
   await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `basic ${token}`,
+      Authorization: `basic ${token}`,
     },
     body,
   });
-
-
 }
-
