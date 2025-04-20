@@ -51,14 +51,18 @@ async function fetchWebhook(data: FormData) {
     subject,
     message,
   });
-  const res = await fetch(url, {
+
+  const token = Buffer.from(`${process.env.WEBHOOK_USER}:${process.env.WEBHOOK_PASSWORD}`).toString("base64")
+
+  await fetch(url, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `basic ${process.env.WEBHOOK_USER}:${process.env.WEBHOOK_PASWORD}`,
+      "Authorization": `basic ${token}`,
     },
     body,
   });
+
 
 }
 
