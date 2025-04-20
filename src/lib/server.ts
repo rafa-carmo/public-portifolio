@@ -55,7 +55,7 @@ async function fetchWebhook(data: FormData) {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "Authorization": `basic ${process.env.WEBHOOK_USER}:${process.env.WEBHOOK_TOKEN}`,
+      "Authorization": `basic ${process.env.WEBHOOK_USER}:${process.env.WEBHOOK_PASWORD}`,
     },
     body,
   });
