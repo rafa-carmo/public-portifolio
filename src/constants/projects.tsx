@@ -39,6 +39,15 @@ export const projects: Projects = {
       githubLink: "https://github.com/rafa-carmo/templates-web",
     },
     {
+      title: "Mini jogos Online",
+      description:
+        "Mini jogos online",
+      tags: ["HTML", "CSS", "JavaScript"],
+      image: "/assets/systems/mini-games.webp",
+      liveLink: "https://rafa-carmo.github.io/mini-games/",
+      githubLink: "https://github.com/rafa-carmo/mini-games",
+    },
+    {
       title: "Loja de Jogos Online",
       description:
         "E-commerce de jogos online com integração de pagamento e download automático.",
@@ -75,6 +84,15 @@ export const projects: Projects = {
       image: "/assets/systems/agency.png",
       liveLink: "https://templates.rafaelcarmo.dev/agency",
       githubLink: "https://github.com/rafa-carmo/templates-web",
+    },
+    {
+      title: "Online Mini Games",
+      description:
+        "A collection of online mini games.",
+      tags: ["HTML", "CSS", "JavaScript"],
+      image: "/assets/systems/mini-games.webp",
+      liveLink: "https://rafa-carmo.github.io/mini-games/",
+      githubLink: "https://github.com/rafa-carmo/mini-games",
     },
     {
       title: "Online Game Store",
