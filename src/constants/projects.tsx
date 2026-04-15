@@ -12,36 +12,45 @@ export type Projects = {
 export const projects: Projects = {
   "pt-BR": [
     {
-      title: "Sistema de Gestão financeira - MODELO",
+      title: "P2P File Transfer",
       description:
-        "Sistema de gestão financeira com controle de contas a pagar e a receber.",
+      "Aplicação web moderna para transferência de arquivos entre pares usando WebRTC com criptografia AES-256-GCM.",
+      tags: ["Typescript", "NextJS", "WebRTC", "AES-256-GCM"],
+      image: "/assets/systems/p2p-file-transfer.png",
+      liveLink: "https://rafa-carmo.github.io/P2P-File-Transfer/",
+      githubLink: "https://github.com/rafa-carmo/P2P-File-Transfer"
+    },
+    {
+      title: "Sistema de Gestão Financeira",
+      description:
+        "Controle de contas a pagar e a receber.",
       tags: ["Typescript", "NextJS"],
       image: "/assets/systems/financeiro.png",
       liveLink: "https://templates.rafaelcarmo.dev/financeiro",
       githubLink: "https://github.com/rafa-carmo/templates-web",
     },
     {
-      title: "Landing Page para Restaurante",
+      title: "Landing Page Restaurante",
       description:
-        "Site institucional para restaurante com sistema de reservas e cardápio digital.",
+        "Site com sistema de reservas e cardápio digital.",
       tags: ["Typescript", "NextJS"],
       image: "/assets/systems/restaurant.png",
       liveLink: "https://templates.rafaelcarmo.dev/food",
       githubLink: "https://github.com/rafa-carmo/templates-web",
     },
     {
-      title: "Landing Page Agencia de Marcas",
+      title: "Landing Page Agência",
       description:
-        "Site institucional para agência de branding com portfólio e depoimentos.",
+        "Site para agência de branding com portfólio.",
       tags: ["Typescript", "NextJS"],
       image: "/assets/systems/agency.png",
       liveLink: "https://templates.rafaelcarmo.dev/agency",
       githubLink: "https://github.com/rafa-carmo/templates-web",
     },
     {
-      title: "Mini jogos Online",
+      title: "Mini Jogos Online",
       description:
-        "Mini jogos online",
+        "Coleção de mini jogos online.",
       tags: ["HTML", "CSS", "JavaScript"],
       image: "/assets/systems/mini-games.webp",
       liveLink: "https://rafa-carmo.github.io/mini-games/",
@@ -50,27 +59,35 @@ export const projects: Projects = {
     {
       title: "Loja de Jogos Online",
       description:
-        "E-commerce de jogos online com integração de pagamento e download automático.",
+        "E-commerce com integração de pagamento e download automático.",
       tags: ["Typescript", "Strapi", "NextJS", "Stripe"],
       image: "/assets/systems/game-store.png",
-
       githubLink: "https://github.com/rafa-carmo/won-games",
     },
   ],
   en: [
     {
-      title: "Financial Management System - TEMPLATE",
+      title: "P2P File Transfer",
       description:
-        "Financial management system with accounts payable and receivable control.",
+      "Modern web application for peer-to-peer file transfer using WebRTC with AES-256-GCM encryption.",
+      tags: ["Typescript", "NextJS", "WebRTC", "AES-256-GCM"],
+      image: "/assets/systems/p2p-file-transfer.png",
+      liveLink: "https://rafa-carmo.github.io/P2P-File-Transfer/",
+      githubLink: "https://github.com/rafa-carmo/P2P-File-Transfer"
+    },
+    {
+      title: "Financial Management System",
+      description:
+        "System with accounts payable and receivable control.",
       tags: ["Typescript", "NextJS"],
       image: "/assets/systems/financeiro.png",
       liveLink: "https://templates.rafaelcarmo.dev/financeiro",
       githubLink: "https://github.com/rafa-carmo/templates-web",
     },
     {
-      title: "Landing Page for Restaurant",
+      title: "Restaurant Landing Page",
       description:
-        "Institutional website for a restaurant with reservation system and digital menu.",
+        "Website with reservation system and digital menu.",
       tags: ["Typescript", "NextJS"],
       image: "/assets/systems/restaurant.png",
       liveLink: "https://templates.rafaelcarmo.dev/food",
@@ -79,7 +96,7 @@ export const projects: Projects = {
     {
       title: "Branding Agency Landing Page",
       description:
-        "Institutional website for a branding agency with portfolio and testimonials.",
+        "Website for branding agency with portfolio.",
       tags: ["Typescript", "NextJS"],
       image: "/assets/systems/agency.png",
       liveLink: "https://templates.rafaelcarmo.dev/agency",
@@ -88,7 +105,7 @@ export const projects: Projects = {
     {
       title: "Online Mini Games",
       description:
-        "A collection of online mini games.",
+        "Collection of online mini games.",
       tags: ["HTML", "CSS", "JavaScript"],
       image: "/assets/systems/mini-games.webp",
       liveLink: "https://rafa-carmo.github.io/mini-games/",
@@ -97,10 +114,9 @@ export const projects: Projects = {
     {
       title: "Online Game Store",
       description:
-        "E-commerce for online games with payment integration and automatic download.",
+        "E-commerce with payment integration and automatic download.",
       tags: ["Typescript", "Strapi", "NextJS", "Stripe"],
       image: "/assets/systems/game-store.png",
-
       githubLink: "https://github.com/rafa-carmo/won-games",
     },
   ],
