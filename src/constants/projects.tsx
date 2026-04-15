@@ -16,7 +16,7 @@ export const projects: Projects = {
       description:
       "Aplicação web moderna para transferência de arquivos entre pares usando WebRTC com criptografia AES-256-GCM.",
       tags: ["Typescript", "NextJS", "WebRTC", "AES-256-GCM"],
-      image: "/assets/systems/p2p-file-transfer.png",
+      image: "/assets/systems/p2p-file-transfer.webp",
       liveLink: "https://rafa-carmo.github.io/P2P-File-Transfer/",
       githubLink: "https://github.com/rafa-carmo/P2P-File-Transfer"
     },
@@ -71,7 +71,7 @@ export const projects: Projects = {
       description:
       "Modern web application for peer-to-peer file transfer using WebRTC with AES-256-GCM encryption.",
       tags: ["Typescript", "NextJS", "WebRTC", "AES-256-GCM"],
-      image: "/assets/systems/p2p-file-transfer.png",
+      image: "/assets/systems/p2p-file-transfer.webp",
       liveLink: "https://rafa-carmo.github.io/P2P-File-Transfer/",
       githubLink: "https://github.com/rafa-carmo/P2P-File-Transfer"
     },
