@@ -2,6 +2,7 @@ import ToasProvider from "@/providers/toast";
 import "./globals.css";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages } from "next-intl/server";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 export default async function LocaleLayout({
   children,
@@ -18,21 +19,13 @@ export default async function LocaleLayout({
 
   return (
     <html lang={locale ?? "en"}>
-      <head>
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-D484CQFXMX"></script>
-        <script>
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-        
-          gtag('config', 'G-D484CQFXMX');
-        </script>
-      </head>
       <body>
         <NextIntlClientProvider messages={messages}>
           <ToasProvider>{children}</ToasProvider>
         </NextIntlClientProvider>
       </body>
+
+      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ""} />
     </html>
   );
 }
